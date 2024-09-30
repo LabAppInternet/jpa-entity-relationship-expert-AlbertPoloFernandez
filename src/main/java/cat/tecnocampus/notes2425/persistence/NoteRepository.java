@@ -54,7 +54,7 @@ public class NoteRepository {
     }
 
     public void saveTagsIfExist(long noteId, Set<Tag> tags) {
-        Stream<String> tagsAlreadyInTheDatabase = getTagsAlreadyInTheDatabase(tags.stream().map(Tag::name).toList());
+        Stream<String> tagsAlreadyInTheDatabase = getTagsAlreadyInTheDatabase(tags.stream().map(Tag::getName).toList());
         tagsAlreadyInTheDatabase.forEach(tag -> {
             jdbcClient.sql("merge into note_tag (note_id, tag_name) values (?, ?)")
                     .param(noteId)

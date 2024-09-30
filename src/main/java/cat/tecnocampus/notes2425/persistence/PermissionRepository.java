@@ -65,7 +65,7 @@ public class PermissionRepository {
                             new HashSet<>(Arrays.asList(new Tag(rs.getString("tag_name"))))));
                 }
                 else {
-                    notes.get(noteId).tags().add(new Tag(rs.getString("tag_name")));
+                    notes.get(noteId).getTags().add(new Tag(rs.getString("tag_name")));
                 }
             }
             return notes.values().stream().toList();
