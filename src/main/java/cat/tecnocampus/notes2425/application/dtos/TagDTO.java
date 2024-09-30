@@ -1,4 +1,13 @@
 package cat.tecnocampus.notes2425.application.dtos;
 
-public record TagDTO() {
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
+
+public record NoteDTO(long id,
+                      String title,
+                      String content, LocalDateTime creationDate, Set<String> tags) {
 }

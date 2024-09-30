@@ -38,7 +38,7 @@ public class PermissionService {
 
     private class NoteMapper {
         public static NoteDTO noteToNoteDTO(Note note) {
-            return new NoteDTO(note.id(), note.title(), note.content(), note.creationDate(), note.tags().stream().map(Tag::name).collect(Collectors.toSet()));
+            return new NoteDTO(note.getId(), note.getTitle(), note.getTitle(), note.getCreationDate(), note.getTags().stream().map(Tag::getName).collect(Collectors.toSet()));
         }
     }
 }

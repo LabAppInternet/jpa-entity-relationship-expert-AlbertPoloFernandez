@@ -42,14 +42,14 @@ public class NoteRepository {
         String query = "insert into note (owner_id, title, content, creation_date) values (?, ?, ?, ?)";
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcClient.sql(query)
-                .param(note.owner().id())
-                .param(note.title())
-                .param(note.content())
-                .param(note.creationDate())
+                .param(note.getOwner().getId())
+                .param(note.getTitle())
+                .param(note.getContent())
+                .param(note.getCreationDate())
                 .update(keyHolder);
 
         long noteId = keyHolder.getKey().longValue();
-        saveTagsIfExist(noteId, note.tags());
+        saveTagsIfExist(noteId, note.getTags());
         return noteId;
     }
 
